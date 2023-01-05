@@ -6,7 +6,7 @@ import os
 
 login = os.getenv('login')
 kod = os.getenv('kod')
-engine = sq.create_engine(f'postgresql+psycopg2://{login}:{kod}@localhost:5432/VKinder')
+engine = sq.create_engine(f'postgresql+psycopg2://{login}:{kod}@localhost:5432/vkinder')
 
 Session = sessionmaker(bind=engine)
 
