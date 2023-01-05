@@ -37,7 +37,7 @@ class VKinder_bot:
     def get_params(add_params: dict = None):
         params = {
             'access_token': token_user,
-            'v': '5.107'
+            'v': '5.131'
         }
         if add_params:
             params.update(add_params)
