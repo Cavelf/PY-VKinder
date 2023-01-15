@@ -6,6 +6,7 @@ import os
 import random
 from random import randrange
 from database import Session, User, MatchingUser, Photos, BlacklistedUser
+#import config *
 
 
 
@@ -83,18 +84,21 @@ class VKinder_bot:
                                 bot.start_vkinder(event)
                             elif text == 'нет':
                                 self.write_msg(event.user_id, 'Заходите еще!')
-                                bot.start()
+                                #bot.start()
+                                self.start() 
                             elif text == 'help':
                                 self.write_msg(event.user_id, 'Приложение для поиска партнера, нажмите start для \
                                                               запуска бота. Заполните данные для \
                                                               поиска партнера')
-                                bot.start()
+                                #bot.start()
+                                self.start() 
                             else:
                                 self.write_msg(event.user_id, 'Ошибка ввода данных')
                 else:
                     if text != 'start':
                         self.write_msg(event.user_id, 'Для запуска наберите - start')
-                        bot.start()
+                        #bot.start()
+                        self.start() 
 
     def start_vkinder(self, event):
         session = Session()
@@ -359,6 +363,8 @@ class VKinder_bot:
 if __name__ == "__main__":
     token_user = os.getenv('token_user')
     token_search = os.getenv('token_search')
+    #token_user = config.token_user
+    #token_search = config.token_search
     bot = VKinder_bot(token_user, token_search)
     vk = vk_api.VkApi(token = token_user)
     longpoll = VkLongPoll(vk)
